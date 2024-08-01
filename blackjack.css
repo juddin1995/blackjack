@@ -3,6 +3,7 @@ body {
   text-align: center;
   background-image: url("./cards/background/card-table.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #dealer-cards img {
