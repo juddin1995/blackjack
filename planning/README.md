@@ -1,4 +1,3 @@
-# blackjack
 REQUIREMENTS 
 Set up a deck, with following requirements:
 
@@ -11,11 +10,23 @@ Set up a deck, with following requirements:
 - jacks/queens/kings, of each suite, value = 10
 
 Set up bank system:
+
 - starter cash
 
 - place a betting function amount
 
 - if player wins player gets 1.5X amount of money
+
+
+Betting system:
+
+- when a player places a bet that amount gets removed from their bank
+
+- chips to place the bet
+
+- add and remove chips 
+
+- confirm bet 
 
 Maybe this is set up as an array, with four arrays (one for each suit). Don't want to explicitly write out a 52 length array, so set up a method that does this for you. Alternatively, maybe use hash key/values? key is suit and value is card type? Arrays are ordered though.
 
