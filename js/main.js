@@ -1,25 +1,19 @@
-let dealerSum = 0;
-let playerSum = 0;
+ /*----- constants -----*/
 
-let dealerAceCount = 0;
-let playerAceCount = 0; //A can be 1 or 11 depending on the sum of other cards in hand
 
-let hidden;
-let deck;
+  /*----- state variables -----*/
+  let dealerHandCount;
+  let playerHandCount;
+  let dealerSum = 0;
+  let playerSum = 0;
+  let dealerAceCount = 0;
+  let playerAceCount = 0; //A can be 1 or 11 depending on the sum of other cards in hand
+  let hidden;
+  let deck;
+  let canHit = true; // player can draw while playerSum <= 21
+  let playerBankroll = 1000; // Starting bankroll
+  let currentBet = 0; // Current bet amount
 
-let canHit = true; // player can draw while playerSum <= 21
-
-let playerBankroll = 1000; // Starting bankroll
-let currentBet = 0; // Current bet amount
-
-window.onload = function () {
-  buildDeck();
-  shuffleDeck();
-  startGame();
-  // document.getElementById("place-bet").addEventListener("click", placeBet);
-};
-
-function buildDeck() {
   let values = [
     "A",
     "2",
@@ -38,6 +32,21 @@ function buildDeck() {
   let types = ["C", "D", "H", "S"];
   deck = [];
 
+  /*----- cached elements  -----*/
+
+
+  /*----- event listeners -----*/
+
+
+  /*----- functions -----*/
+window.onload = function () {
+  buildDeck();
+  shuffleDeck();
+  startGame();
+  // document.getElementById("place-bet").addEventListener("click", placeBet);
+};
+
+function buildDeck() {
   for (let i = 0; i < types.length; i++) {
     for (let j = 0; j < values.length; j++) {
       deck.push(`${values[j]}-${types[i]}`);
@@ -61,9 +70,10 @@ function startGame() {
   hidden = deck.pop();
   dealerSum += getValue(hidden);
   dealerAceCount += checkAce(hidden);
+  let dealerHandCount = 0;
   // console.log(hidden);
   // console.log(dealerSum);
-  while (dealerSum < 17) {
+  while (dealerSum < 17 && dealerHandCount < 2) {
     // img
     let cardImg = document.createElement("img");
     let card = deck.pop();
@@ -71,6 +81,7 @@ function startGame() {
     dealerSum += getValue(card);
     dealerAceCount += checkAce(card);
     document.getElementById("dealer-cards").append(cardImg);
+    dealerHandCount++;
   }
   console.log(dealerSum);
 
