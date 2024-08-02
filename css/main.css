@@ -1,0 +1,81 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background-image: url("./cards/background/card-table.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: antiquewhite;
+  background-color: black;
+  padding: 20px 200px;
+  border: 2px solid antiquewhite; /* Adds a border around the h1 */
+  border-radius: 10px; /* Rounds the corners of the border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adds a shadow for depth */
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+#bankroll-title {
+  color: #333; /* Dark gray text color for better readability */
+  background-color: #f9f9f9; /* Light background color */
+  padding: 15px; /* Reduced padding for a smaller box */
+  border: 1px solid #ddd; /* Light gray border for a subtle effect */
+  border-radius: 8px; /* Slightly rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Softer shadow for a lighter look */
+  text-align: center; /* Center align text */
+  margin: 10px auto; /* Center the box and add margin around it */
+  width: fit-content; /* Adjust width to fit the content */
+  max-width: 80%; /* Limit the width to prevent it from being too wide */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Pretty, readable font */
+  font-size: 16px; /* Slightly larger font size for readability */
+  line-height: 1.5; /* Improve readability with appropriate line spacing */
+}
+
+#dealer-cards img {
+  height: 175px;
+  width: 125px;
+  margin: 1px;
+}
+
+#player-cards img {
+  height: 175px;
+  width: 125px;
+  margin: 1px;
+}
+
+#hit {
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+}
+
+#stay {
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+}
+
+#results {
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  text-align: center; 
+  margin: 0 auto;
+  width: fit-content;
+  max-width: 90%;
+}
+
+.display {
+  display: visible;
+}
+
+.hidden {
+  display: none;
+}

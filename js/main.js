@@ -16,7 +16,7 @@ window.onload = function () {
   buildDeck();
   shuffleDeck();
   startGame();
-  document.getElementById("place-bet").addEventListener("click", placeBet);
+  // document.getElementById("place-bet").addEventListener("click", placeBet);
 };
 
 function buildDeck() {
@@ -56,7 +56,7 @@ function shuffleDeck() {
   }
   console.log(deck);
 }
-
+// startGame is the init() function
 function startGame() {
   hidden = deck.pop();
   dealerSum += getValue(hidden);
@@ -67,7 +67,7 @@ function startGame() {
     // img
     let cardImg = document.createElement("img");
     let card = deck.pop();
-    cardImg.src = `./cards/${card}.png`;
+    cardImg.src = `./css/cards/${card}.png`;
     dealerSum += getValue(card);
     dealerAceCount += checkAce(card);
     document.getElementById("dealer-cards").append(cardImg);
@@ -77,7 +77,7 @@ function startGame() {
   for (let i = 0; i < 2; i++) {
     let cardImg = document.createElement("img");
     let card = deck.pop();
-    cardImg.src = `./cards/${card}.png`;
+    cardImg.src = `./css/cards/${card}.png`;
     playerSum += getValue(card);
     playerAceCount += checkAce(card);
     document.getElementById("player-cards").append(cardImg);
@@ -94,7 +94,7 @@ function hit() {
 
   let cardImg = document.createElement("img");
   let card = deck.pop();
-  cardImg.src = `./cards/${card}.png`;
+  cardImg.src = `./css/cards/${card}.png`;
   playerSum += getValue(card);
   playerAceCount += checkAce(card);
   document.getElementById("player-cards").append(cardImg);
@@ -109,7 +109,7 @@ function stay() {
   playerSum = reduceAce(playerSum, playerAceCount);
 
   canHit = false;
-  document.getElementById("hidden").src = "./cards/" + hidden + ".png";
+  document.getElementById("hidden").src = "./css/cards/" + hidden + ".png";
 
   let message = "";
   if (playerSum > 21) {
@@ -125,6 +125,9 @@ function stay() {
   document.getElementById("dealer-sum").innerText = dealerSum;
   document.getElementById("player-sum").innerText = playerSum;
   document.getElementById("results").innerText = message;
+  document.getElementById("results").classList.remove("hidden");
+  document.getElementById("results").classList.add("display");
+
 }
 
 function getValue(card) {
