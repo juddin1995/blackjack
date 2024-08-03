@@ -34,14 +34,22 @@ const betBtns = document.querySelectorAll('#bet-controls > button');
 /*----- event listeners -----*/
 dealBtn.addEventListener('click', handleDeal);
 document.getElementById('hit-btn').addEventListener('click', handleHit);
-// document.getElementById('stand-btn').addEventListener('click', handleStand);
-// document.getElementById('bet-controls').addEventListener('click', handleBet);
+document.getElementById('bet-controls').addEventListener('click', handleBet);
+document.getElementById('stand-btn').addEventListener('click', handleStand);
 
 /*----- functions -----*/
 init();
 
 function handleStand() {
-
+  if (pTotal === dTotal) {
+    outcome = 'T';
+  } else if (dTotal > pTotal) {
+    outcome = 'D';
+  } else {
+    outcome = 'P';
+  }
+  settleBet();
+  render();
 }
 
 function dealerPlay(cb) {
@@ -49,7 +57,13 @@ function dealerPlay(cb) {
 }
 
 function handleHit() {
-
+  pHand.push(deck.pop());
+  pTotal = getHandTotal(pHand);
+  if (pTotal > 21) {
+    outcome = 'D';
+    settleBet();
+  };
+  render();
 }
 
 function handleBet(evt) {
@@ -62,7 +76,10 @@ function handleBet(evt) {
 }
 
 function handleDeal() {
+  outcome = null;
   deck = getNewShuffledDeck();
+  dHand = [];
+  pHand = [];
   dHand.push(deck.pop(), deck.pop());
   pHand.push(deck.pop(), deck.pop());
   // Check for Blackjack
@@ -74,13 +91,18 @@ function handleDeal() {
     outcome = 'DBJ';
   } else if (pTotal === 21) {
     outcome = 'PBJ';
-  } 
+  }
   if (outcome) settleBet();
   render();
 }
 
 function settleBet() {
-
+  if (outcome === 'PBJ') {
+    bankroll += bet + (bet * 1.5);
+  } else if (outcome === 'P') {
+    bankroll += bet * 2;
+  }
+  bet = 0;
 }
 
 // compute the best score for the hand passed in
@@ -115,6 +137,8 @@ function render() {
   bankrollEl.innerHTML = bankroll;
   betEl.innerHTML = bet;
   renderControls();
+  renderBetBtns();
+  msgEl.innerHTML = MSG_LOOKUP[outcome];
 
 }
 
@@ -127,14 +151,19 @@ function renderBetBtns() {
 
 function renderControls() {
   handOverControlsEl.style.visibility = handInPlay() ? 'hidden' : 'visible';
-  dealBtn.style.visibility = bet >= 5 && !handInPlay() ? 'visible' : 'hidden';
+  handActiveControlsEl.style.visibility = handInPlay() ? 'visible' : 'hidden';
+  dealBtn.style.visibility = bet >= 1 && !handInPlay() ? 'visible' : 'hidden';
 }
 
 function renderHands() {
+  playerTotalEl.innerHTML = pTotal;
+  dealerTotalEl.innerHTML = outcome ? dTotal : '??';
+  playerHandEl.innerHTML = pHand.map(card => `<div class="card ${card.face}"></div>`).join('');
+  dealerHandEl.innerHTML = dHand.map((card, idx) => `<div class="card ${idx === 1 && !outcome ? 'back' : card.face}"></div>`).join('');
 }
 
 function handInPlay() {
-
+  return pHand.length && !outcome;
 }
 
 function getNewShuffledDeck() {

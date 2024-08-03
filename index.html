@@ -10,13 +10,12 @@
   <body id="img.source-image">
     <h1 id="game-name">Black Jack</h1>
     <div>
-      <section>
-        <div>Bet Amount: $<span id="bet"></span></div>
-        <div>Bankroll: $<span id="bankroll"></span></div>
-      </section>
-
       <div>
         <h1 id="msg"></h1>
+        <section>
+          <div>Bet Amount: $<span id="bet"></span></div>
+          <div>Bankroll: $<span id="bankroll"></span></div>
+        </section>
         <h3>Dealer Hand</h3>
         <section id="dealer-hand" class="card-container"></section>
         <div>Dealer Has: <span id="dealer-total"></span></div>
@@ -27,29 +26,33 @@
 
     <br />
     <p id="results" class="hidden"></p>
-    
-    <section id="hand-over-controls">
-      <button id="deal-btn">Deal</button>
-      <div id="bet-controls">
-        <h5>Click to Add to Bet</h5>
-        <button>$1</button>
-        <button>$5</button>
-        <button>$25</button>
-        <button>$100</button>
-        <h5>Press Shift While Clicking to Subtract</h5>
-      </div>
-    </section>
-    
-    <button type="button" id="hit-btn" class="button">
-      <div class="button-top">Hit</div>
-      <div class="button-bottom"></div>
-      <div class="button-base"></div>
-    </button>
 
-    <button type="button" id="stand-btn" class="button">
-      <div class="button-top">Stand</div>
-      <div class="button-bottom"></div>
-      <div class="button-base"></div>
-    </button>
+    <div>
+      <section id="hand-over-controls">
+        <button id="deal-btn">Deal</button>
+        <div id="bet-controls">
+          <h5>Click to Add to Bet</h5>
+          <button>$1</button>
+          <button>$5</button>
+          <button>$25</button>
+          <button>$100</button>
+          <h5>Press Shift While Clicking to Subtract</h5>
+        </div>
+      </section>
+      
+      <section id="hand-active-controls">
+        <button type="button" id="hit-btn" class="button">
+          <div class="button-top">Hit</div>
+          <div class="button-bottom"></div>
+          <div class="button-base"></div>
+        </button>
+        
+        <button type="button" id="stand-btn" class="button">
+          <div class="button-top">Stand</div>
+          <div class="button-bottom"></div>
+          <div class="button-base"></div>
+        </button>
+      </section>
+    </div>
   </body>
 </html>
