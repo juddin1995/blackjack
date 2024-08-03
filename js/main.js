@@ -1,170 +1,123 @@
- /*----- constants -----*/
-
-
-  /*----- state variables -----*/
-  let dealerHandCount;
-  let playerHandCount;
-  let dealerSum = 0;
-  let playerSum = 0;
-  let dealerAceCount = 0;
-  let playerAceCount = 0; //A can be 1 or 11 depending on the sum of other cards in hand
-  let hidden;
-  let deck;
-  let canHit = true; // player can draw while playerSum <= 21
-  let playerBankroll = 1000; // Starting bankroll
-  let currentBet = 0; // Current bet amount
-
-  let values = [
-    "A",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "J",
-    "Q",
-    "K",
-  ];
-  let types = ["C", "D", "H", "S"];
-  deck = [];
-
-  /*----- cached elements  -----*/
-
-
-  /*----- event listeners -----*/
-
-
-  /*----- functions -----*/
-window.onload = function () {
-  buildDeck();
-  shuffleDeck();
-  startGame();
-  // document.getElementById("place-bet").addEventListener("click", placeBet);
+/*----- constants -----*/
+const suits = ['s', 'c', 'd', 'h'];
+const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
+const MSG_LOOKUP = {
+  null: 'Good Luck!',
+  'T': "It's a Push",
+  'P': 'Player Wins!',
+  'D': 'Dealer Wins',
+  'PBJ': 'Player Has Blackjack 😃',
+  'DBJ': 'Dealer Has Blackjack 😔',
 };
+const mainDeck = buildMainDeck();
 
-function buildDeck() {
-  for (let i = 0; i < types.length; i++) {
-    for (let j = 0; j < values.length; j++) {
-      deck.push(`${values[j]}-${types[i]}`);
-      // deck.push(values[j] + "-" + types[i]);
-    }
-  }
-  // console.log(deck);
-}
+/*----- app's state (variables) -----*/
+let deck;  // shuffled deck
+let pHand, dHand;  // player/dealer hands (arrays)
+let pTotal, dTotal;  // best point value of hand
+let bankroll, bet;  // bankroll how much money we have & bet is the amount of the bet
+let outcome;  // result of the hand (see MSG_LOOKUP)
 
-function shuffleDeck() {
-  for (let i = 0; i < deck.length - 1; i++) {
-    let j = Math.floor(Math.random() * deck.length); // Generate random number between 0 and < 52
-    let temp = deck[i];
-    deck[i] = deck[j];
-    deck[j] = temp;
-  }
-  console.log(deck);
-}
-// startGame is the init() function
-function startGame() {
-  hidden = deck.pop();
-  dealerSum += getValue(hidden);
-  dealerAceCount += checkAce(hidden);
-  let dealerHandCount = 0;
-  // console.log(hidden);
-  // console.log(dealerSum);
-  while (dealerSum < 17 && dealerHandCount < 2) {
-    // img
-    let cardImg = document.createElement("img");
-    let card = deck.pop();
-    cardImg.src = `./css/cards/${card}.png`;
-    dealerSum += getValue(card);
-    dealerAceCount += checkAce(card);
-    document.getElementById("dealer-cards").append(cardImg);
-    dealerHandCount++;
-  }
-  console.log(dealerSum);
+/*----- cached element references -----*/
+const msgEl = document.getElementById('msg');
+const dealerHandEl = document.getElementById('dealer-hand');
+const dealerTotalEl = document.getElementById('dealer-total');
+const playerHandEl = document.getElementById('player-hand');
+const playerTotalEl = document.getElementById('player-total');
+const betEl = document.getElementById('bet');
+const bankrollEl = document.getElementById('bankroll');
+const handActiveControlsEl = document.getElementById('hand-active-controls');
+const handOverControlsEl = document.getElementById('hand-over-controls');
+const dealBtn = document.getElementById('deal-btn');
 
-  for (let i = 0; i < 2; i++) {
-    let cardImg = document.createElement("img");
-    let card = deck.pop();
-    cardImg.src = `./css/cards/${card}.png`;
-    playerSum += getValue(card);
-    playerAceCount += checkAce(card);
-    document.getElementById("player-cards").append(cardImg);
-  }
-  console.log(playerSum);
-  document.getElementById("hit").addEventListener("click", hit);
-  document.getElementById("stay").addEventListener("click", stay);
-}
+/*----- event listeners -----*/
+dealBtn.addEventListener('click', handleDeal);
+document.getElementById('hit-btn').addEventListener('click', handleHit);
+document.getElementById('stand-btn').addEventListener('click', handleStand);
+document.getElementById('bet-controls').addEventListener('click', handleBet);
 
-function hit() {
-  if (!canHit) {
-    return;
-  }
+/*----- functions -----*/
+init();
 
-  let cardImg = document.createElement("img");
-  let card = deck.pop();
-  cardImg.src = `./css/cards/${card}.png`;
-  playerSum += getValue(card);
-  playerAceCount += checkAce(card);
-  document.getElementById("player-cards").append(cardImg);
-
-  if (reduceAce(playerSum, playerAceCount) > 21) {
-    canHit = false;
-  }
-}
-
-function stay() {
-  dealerSum = reduceAce(dealerSum, dealerAceCount);
-  playerSum = reduceAce(playerSum, playerAceCount);
-
-  canHit = false;
-  document.getElementById("hidden").src = "./css/cards/" + hidden + ".png";
-
-  let message = "";
-  if (playerSum > 21) {
-    message = "You Lose!";
-  } else if (dealerSum > 21) {
-    message = "You Win!";
-  } else if (playerSum === dealerSum) {
-    message = "Tie!";
-  } else if (playerSum < dealerSum) {
-    message = "You Lose!";
-  }
-
-  document.getElementById("dealer-sum").innerText = dealerSum;
-  document.getElementById("player-sum").innerText = playerSum;
-  document.getElementById("results").innerText = message;
-  document.getElementById("results").classList.remove("hidden");
-  document.getElementById("results").classList.add("display");
+function handleStand() {
 
 }
 
-function getValue(card) {
-  let data = card.split("-");
-  let value = data[0];
+function dealerPlay(cb) {
 
-  if (isNaN(value)) {
-    if (value === "A") {
-      return 11;
-    }
-    return 10;
-  }
-  return parseInt(value);
 }
 
-function checkAce(card) {
-  if (card[0] === "A") {
-    return 1;
-  }
-  return 0;
+function handleHit() {
+
 }
 
-function reduceAce(playerSum, playerAceCount) {
-  while (playerSum > 21 && playerAceCount > 0) {
-    playerSum -= 10;
-    playerAceCount -= 1;
+function handleBet(evt) {
+
+}
+
+function handleDeal() {
+
+}
+
+function settleBet() {
+
+}
+
+// compute the best score for the hand passed in
+function getHandTotal(hand) {
+
+}
+
+// initialize state, then call render()
+function init() {
+
+}
+
+// Visualize all state to the DOM
+function render() {
+
+}
+
+function renderBetBtns() {
+
+}
+
+function renderControls() {
+
+}
+
+function renderHands() {
+}
+
+function handInPlay() {
+
+}
+
+function getNewShuffledDeck() {
+  // Create a copy of the mainDeck (leave mainDeck untouched!)
+  const tempDeck = [...mainDeck];
+  const newShuffledDeck = [];
+  while (tempDeck.length) {
+    // Get a random index for a card still in the tempDeck
+    const rndIdx = Math.floor(Math.random() * tempDeck.length);
+    // Note the [0] after splice - this is because splice always returns an array and we just want the card object in that array
+    newShuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
   }
-  return playerSum;
+  return newShuffledDeck;
+}
+
+function buildMainDeck() {
+  const deck = [];
+  // Use nested forEach to generate card objects
+  suits.forEach(function(suit) {
+    ranks.forEach(function(rank) {
+      deck.push({
+        // The 'face' property maps to the library's CSS classes for cards
+        face: `${suit}${rank}`,
+        // Setting the 'value' property for game of blackjack, not war
+        value: Number(rank) || (rank === 'A' ? 11 : 10)
+      });
+    });
+  });
+  return deck;
 }

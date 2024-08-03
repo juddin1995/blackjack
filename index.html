@@ -5,25 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Black Jack</title>
     <link rel="stylesheet" href="css/main.css" />
-    <script src="js/main.js"></script>
+    <script defer src="js/mainOne.js"></script>
   </head>
-  <body>
+  <body id="img.source-image">
     <h1 id="game-name">Black Jack</h1>
-    <p id="bankroll-title">Bankroll: $<span id="bankroll">1000</span></p>
-    <input type="number" id="bet" placeholder="Enter your bet" />
-    <button id="place-bet">Place Bet</button>
+    <div>
+      <section>
+        <div>Bet Amount: $<span id="bet"></span></div>
+        <div>Bankroll: $<span id="bankroll"></span></div>
+      </section>
 
-    <h2>Dealer: <span id="dealer-sum"></span></h2>
-    <div id="dealer-cards">
-      <img id="hidden" src="/css/cards/BACK.png" alt="" />
-    </div>
-
-    <h2>Player: <span id="player-sum"></span></h2>
-    <div id="player-cards"></div>
+      <div>
+        <h1 id="msg"></h1>
+        <h3>Dealer Hand</h3>
+        <section id="dealer-hand" class="card-container"></section>
+        <div>Dealer Has: <span id="dealer-total"></span></div>
+        <h3>Player Hand</h3>
+        <section id="player-hand" class="card-container"></section>
+        <div>Player Has: <span id="player-total"></span></div>
+      </div>
 
     <br />
     <p id="results" class="hidden"></p>
-    <button id="hit">Hit</button>
-    <button id="stay">Stay</button>
+    
+    <section id="hand-over-controls">
+      <button id="deal-btn">Deal</button>
+      <div id="bet-controls">
+        <h5>Click to Add to Bet</h5>
+        <button>$1</button>
+        <button>$5</button>
+        <button>$25</button>
+        <button>$100</button>
+        <h5>Press Shift While Clicking to Subtract</h5>
+      </div>
+    </section>
+    
+    <button type="button" id="hit" class="button">
+      <div class="button-top">Hit</div>
+      <div class="button-bottom"></div>
+      <div class="button-base"></div>
+    </button>
+
+    <button type="button" id="stay" class="button">
+      <div class="button-top">Stay</div>
+      <div class="button-bottom"></div>
+      <div class="button-base"></div>
+    </button>
   </body>
 </html>
