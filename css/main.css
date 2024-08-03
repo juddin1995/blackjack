@@ -1,7 +1,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  background-image: url("./cards/background/card-table.jpg");
+  background-image: url("./background/card-table.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   box-sizing: border-box;
@@ -43,19 +43,13 @@ h1 {
   line-height: 1.5;
 }
 
-#dealer-cards img {
-  height: 175px;
-  width: 125px;
-  margin: 1px;
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
 }
 
-#player-cards img {
-  height: 175px;
-  width: 125px;
-  margin: 1px;
-}
-
-/* From Uiverse.io by njesenberger */ 
 .button {
   -webkit-appearance: none;
   appearance: none;

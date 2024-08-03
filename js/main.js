@@ -41,6 +41,7 @@ document.getElementById('stand-btn').addEventListener('click', handleStand);
 init();
 
 function handleStand() {
+  dealerPlay();
   if (pTotal === dTotal) {
     outcome = 'T';
   } else if (dTotal > pTotal) {
@@ -53,7 +54,10 @@ function handleStand() {
 }
 
 function dealerPlay(cb) {
-
+  while (dTotal < 17) {
+    dHand.push(deck.pop());
+    dTotal = getHandTotal(dHand);
+  }
 }
 
 function handleHit() {
