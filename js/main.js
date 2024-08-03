@@ -34,8 +34,8 @@ const betBtns = document.querySelectorAll('#bet-controls > button');
 /*----- event listeners -----*/
 dealBtn.addEventListener('click', handleDeal);
 document.getElementById('hit-btn').addEventListener('click', handleHit);
-document.getElementById('stand-btn').addEventListener('click', handleStand);
-document.getElementById('bet-controls').addEventListener('click', handleBet);
+// document.getElementById('stand-btn').addEventListener('click', handleStand);
+// document.getElementById('bet-controls').addEventListener('click', handleBet);
 
 /*----- functions -----*/
 init();
@@ -62,7 +62,21 @@ function handleBet(evt) {
 }
 
 function handleDeal() {
-
+  deck = getNewShuffledDeck();
+  dHand.push(deck.pop(), deck.pop());
+  pHand.push(deck.pop(), deck.pop());
+  // Check for Blackjack
+  dTotal = getHandTotal(dHand);
+  pTotal = getHandTotal(pHand);
+  if (dTotal === 21 && pTotal === 21) {
+    outcome = 'T';
+  } else if (dTotal === 21) {
+    outcome = 'DBJ';
+  } else if (pTotal === 21) {
+    outcome = 'PBJ';
+  } 
+  if (outcome) settleBet();
+  render();
 }
 
 function settleBet() {
@@ -71,12 +85,28 @@ function settleBet() {
 
 // compute the best score for the hand passed in
 function getHandTotal(hand) {
-
+  let total = 0;
+  let aces = 0;
+  hand.forEach(function(card) {
+    total += card.value;
+    if (card.value === 11) aces++;
+  });
+  while (total > 21 && aces) {
+    total -= 10;
+    aces--;
+  }
+  return total;
 }
 
 // initialize state, then call render()
 function init() {
-  
+  outcome = null;
+  dHand = [];
+  pHand = [];
+  pTotal = dTotal = 0;
+  bankroll = 1000;
+  bet = 0;
+  render();
 }
 
 // Visualize all state to the DOM
@@ -97,6 +127,7 @@ function renderBetBtns() {
 
 function renderControls() {
   handOverControlsEl.style.visibility = handInPlay() ? 'hidden' : 'visible';
+  dealBtn.style.visibility = bet >= 5 && !handInPlay() ? 'visible' : 'hidden';
 }
 
 function renderHands() {
