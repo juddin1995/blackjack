@@ -29,6 +29,7 @@ const bankrollEl = document.getElementById('bankroll');
 const handActiveControlsEl = document.getElementById('hand-active-controls');
 const handOverControlsEl = document.getElementById('hand-over-controls');
 const dealBtn = document.getElementById('deal-btn');
+const betBtns = document.querySelectorAll('#bet-controls > button');
 
 /*----- event listeners -----*/
 dealBtn.addEventListener('click', handleDeal);
@@ -52,7 +53,12 @@ function handleHit() {
 }
 
 function handleBet(evt) {
-
+  const btn = evt.target;
+  if (btn.tagName !== 'BUTTON') return;
+  const betAmt = parseInt(btn.innerText.replace('$', ''));
+  bet += betAmt;
+  bankroll -= betAmt;
+  render();
 }
 
 function handleDeal() {
@@ -70,20 +76,27 @@ function getHandTotal(hand) {
 
 // initialize state, then call render()
 function init() {
-
+  
 }
 
 // Visualize all state to the DOM
 function render() {
+  renderHands();
+  bankrollEl.innerHTML = bankroll;
+  betEl.innerHTML = bet;
+  renderControls();
 
 }
 
 function renderBetBtns() {
-
+  betBtns.forEach(function(btn) {
+    const btnAmt = parseInt(btn.innerText.replace('$', ''));
+    btn.disabled = btnAmt > bankroll;
+  })
 }
 
 function renderControls() {
-
+  handOverControlsEl.style.visibility = handInPlay() ? 'hidden' : 'visible';
 }
 
 function renderHands() {
