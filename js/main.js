@@ -44,7 +44,7 @@ function handleStand() {
   dealerPlay();
   if (pTotal === dTotal) {
     outcome = 'T';
-  } else if (dTotal > pTotal) {
+  } else if (dTotal > pTotal && pTotal !== 21) {
     outcome = 'D';
   } else {
     outcome = 'P';
