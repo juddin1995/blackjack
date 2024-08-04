@@ -109,6 +109,81 @@ h3 {
   padding: 10px;
 }
 
+.bet-controls-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bet-amt {
+  color: black;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: gold;
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  font-size: 15px;
+  width: fit-content;
+  margin: 5%;
+}
+
+#bet-btn-25 {
+  background-color: green; /* Gold color for the chip */
+  color: gold;
+  border: 2px solid #000; /* Black border for definition */
+  border-radius: 50%; /* Round shape */
+  width: 100px; /* Size of the chip */
+  height: 100px; /* Size of the chip */
+  font-size: 24px; /* Text size */
+  font-weight: bold;
+  text-align: center;
+  line-height: 100px; /* Center text vertically */
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  margin: 1%;
+}
+
+#bet-btn-100 {
+  background-color: black; /* Gold color for the chip */
+  color: gold;
+  border: 2px solid #000; /* Black border for definition */
+  border-radius: 50%; /* Round shape */
+  width: 100px; /* Size of the chip */
+  height: 100px; /* Size of the chip */
+  font-size: 24px; /* Text size */
+  font-weight: bold;
+  text-align: center;
+  line-height: 100px; /* Center text vertically */
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  margin: 1%;
+}
+
+#bet-btn-500 {
+  background-color: purple; /* Gold color for the chip */
+  color: gold;
+  border: 2px solid #000; /* Black border for definition */
+  border-radius: 50%; /* Round shape */
+  width: 100px; /* Size of the chip */
+  height: 100px; /* Size of the chip */
+  font-size: 24px; /* Text size */
+  font-weight: bold;
+  text-align: center;
+  line-height: 100px; /* Center text vertically */
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  margin: 1%;
+}
+
 .button {
   -webkit-appearance: none;
   appearance: none;
