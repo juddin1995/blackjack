@@ -8,6 +8,21 @@ body {
   overflow: hidden;
 }
 
+.main-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: auto;
+  width: 100vh;
+  height: auto;
+}
+
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 #img.source-image {
   width: 100%;
   position: absolute;
@@ -133,7 +148,7 @@ h3 {
 #bet-btn-25 {
   background-color: green; /* Gold color for the chip */
   color: gold;
-  border: 2px solid #000; /* Black border for definition */
+  border: 2px solid gold; /* Gold border for definition */
   border-radius: 50%; /* Round shape */
   width: 100px; /* Size of the chip */
   height: 100px; /* Size of the chip */
@@ -151,7 +166,7 @@ h3 {
 #bet-btn-100 {
   background-color: black; /* Gold color for the chip */
   color: gold;
-  border: 2px solid #000; /* Black border for definition */
+  border: 2px solid gold; /* Gold border for definition */
   border-radius: 50%; /* Round shape */
   width: 100px; /* Size of the chip */
   height: 100px; /* Size of the chip */
@@ -169,7 +184,7 @@ h3 {
 #bet-btn-500 {
   background-color: purple; /* Gold color for the chip */
   color: gold;
-  border: 2px solid #000; /* Black border for definition */
+  border: 2px solid gold; /* Black border for definition */
   border-radius: 50%; /* Round shape */
   width: 100px; /* Size of the chip */
   height: 100px; /* Size of the chip */

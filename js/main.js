@@ -12,7 +12,7 @@ const MSG_LOOKUP = {
 const mainDeck = buildMainDeck();
 
 /*----- app's state (variables) -----*/
-let deck;  // shuffled deck
+let deck;  // shuffled deck - deck shuffled in handleDeal()
 let pHand, dHand;  // player/dealer hands (arrays)
 let pTotal, dTotal;  // best point value of hand
 let bankroll, bet;  // bankroll how much money we have & bet is the amount of the bet
@@ -33,8 +33,8 @@ const betBtns = document.querySelectorAll('#bet-controls > button');
 
 /*----- event listeners -----*/
 dealBtn.addEventListener('click', handleDeal);
+document.getElementById('bet-controls').addEventListener('click', handleBet); // Event delegation to each bet button
 document.getElementById('hit-btn').addEventListener('click', handleHit);
-document.getElementById('bet-controls').addEventListener('click', handleBet);
 document.getElementById('stand-btn').addEventListener('click', handleStand);
 
 /*----- functions -----*/
@@ -172,9 +172,10 @@ function handInPlay() {
 
 function getNewShuffledDeck() {
   // Create a copy of the mainDeck (leave mainDeck untouched!)
-  const tempDeck = [...mainDeck];
-  const newShuffledDeck = [];
-  while (tempDeck.length) {
+  const tempDeck = [...mainDeck]; // spread syntax splits each object in mainDeck and stores them as an array in tempDeck
+  const newShuffledDeck = []; // initialize an empty array to store the deck after shuffling
+  // add a random card to tempDeck while the index is still a number less than 53
+  while (tempDeck.length) { 
     // Get a random index for a card still in the tempDeck
     const rndIdx = Math.floor(Math.random() * tempDeck.length);
     // Note the [0] after splice - this is because splice always returns an array and we just want the card object in that array
@@ -192,9 +193,9 @@ function buildMainDeck() {
         // The 'face' property maps to the library's CSS classes for cards
         face: `${suit}${rank}`,
         // Setting the 'value' property for game of blackjack, not war
-        value: Number(rank) || (rank === 'A' ? 11 : 10)
+        value: Number(rank) || (rank === 'A' ? 11 : 10) // if the rank is 02 - 09 then value is 1-9, if the card rank is A then value is 11, if card rank is J, Q, or K then value is 10.  
       });
     });
   });
-  return deck;
+  return deck; // returns the deck built in an order to the mainDeck constant.
 }
