@@ -1,9 +1,9 @@
 # User Stories
 1. As  a user, I want to see a landing page so that I know I am playing blackjack.
-2. As a user, I want to see a bankroll with a starting amount of $100,000.
+2. As a user, I want to see a bankroll with a starting amount of $1000.
 3. As a user, I want to see buttons to place my bet ($25, $100, $500).
 4. As a user, I want to see the bet amount placed subtracted from the bankroll.
-5. As a user, I want a card in my hand and a card face down on the dealer's hand with one faced up (The first card's value hidden for the dealer hand and the second one is not).
+5. As a user, I want to see a card in my hand and a card face down on the dealer's hand with one faced up (The first card's value hidden for the dealer hand and the second one is not).
 6. As a user, I want a button called deal to start the game.
 7. As a user, I want a deck of 52 cards to draw from.
 8. As a user, I want to have a button to hit (add/draw a card to my hand).
