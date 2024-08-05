@@ -12,7 +12,8 @@
 11. As a user, I want to see the total value of the dealer's hand after I click stand.
 12. As a user, I want to see the cards drawn by me and the computer on the screen (except for dealer's hidden card which should be faced down until the end of the round).
 13. As a user, I want to see who won the round after clicking stand.
-14. As a user, I want to be able to continue playing until my bankroll is empty ($0).
+14. As a user, I want to see my bankroll increase/decrease by the bet amount when I win/lose.
+15. As a user, I want to be able to continue playing until my bankroll is empty ($0).
 
 REQUIREMENTS 
 Set up a deck, with following requirements:
