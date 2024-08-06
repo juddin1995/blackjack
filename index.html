@@ -12,7 +12,7 @@
     />
     <script defer src="js/main.js"></script>
   </head>
-  <body id="img.source-image">
+  <body>
     <div class="main-container">
       <div>
         <h1 id="game-name">Black Jack</h1>
@@ -35,7 +35,13 @@
 
         <div class="controls-container">
           <section class="display" id="hand-over-controls">
-            <button id="deal-btn">Deal</button>
+
+            <button type="button" class="button" id="deal-btn">
+              <div class="button-top">Deal</div>
+              <div class="button-bottom"></div>
+              <div class="button-base"></div>
+            </button>
+            
             <div class="bet-controls-container" id="bet-controls">
               <div class="bet-amt-container">
                 <h5 id="bet-amt">Click a chip to place a bet</h5>

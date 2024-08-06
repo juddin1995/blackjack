@@ -143,7 +143,6 @@ function render() {
   renderControls();
   renderBetBtns();
   msgEl.innerHTML = MSG_LOOKUP[outcome];
-
 }
 
 function renderBetBtns() {
