@@ -62,9 +62,10 @@ function handleStand() {
 }
 
 function dealerPlay(cb) {
+  // while dealer has a total less than 17
   while (dTotal < 17) {
-    dHand.push(deck.pop());
-    dTotal = getHandTotal(dHand);
+    dHand.push(deck.pop()); // add a card to the dealer hand
+    dTotal = getHandTotal(dHand); // calculate the total of the dealer hand
   }
 }
 
@@ -122,14 +123,15 @@ function getHandTotal(hand) {
   let total = 0;
   let aces = 0;
   hand.forEach(function(card) {
-    total += card.value;
-    if (card.value === 11) aces++;
+    total += card.value; // adds the value of each card in hand to total
+    if (card.value === 11) aces++; // check if the card is an ace
   });
-  while (total > 21 && aces) {
-    total -= 10;
-    aces--;
+  // while the total is greater than 21 and there are aces in hand
+  while (total > 21 && aces) { 
+    total -= 10; // subtract 10 for the ace when total value greater then 21. Ace becomes 1.
+    aces--; // decrement the aces in hand by one each time an ace is in hand
   }
-  return total;
+  return total; // returns the total value of the hand
 }
 
 // initialize state, then call render()
