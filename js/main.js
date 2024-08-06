@@ -42,16 +42,20 @@ init();
 
 function handleStand() {
   dealerPlay();
-  if (pTotal === dTotal) {
-    outcome = 'T';
-  } else if (dTotal > pTotal && pTotal > 21) {
-    outcome = 'D';
+  if (pTotal > 21) {
+    outcome = (dTotal > 21) ? 'T' : 'D'; // Player busts, check if dealer also busts
+  } else if (dTotal > 21) {
+    outcome = 'P'; // Dealer busts, player wins
+  } else if (pTotal === 21) {
+    outcome = (dTotal === 21) ? 'T' : 'P'; // Player hits 21, check if dealer also hits 21
   } else if (dTotal === 21) {
-    outcome = 'DBJ'
-  } else if (pTotal > 21 && dTotal > pTotal) {
-    outcome = 'P';
+    outcome = 'D'; // Dealer hits 21, dealer wins
+  } else if (pTotal === dTotal) {
+    outcome = 'T'; // Tie
+  } else if (pTotal > dTotal) {
+    outcome = 'P'; // Player has a higher total without busting
   } else {
-    outcome = 'PBJ';
+    outcome = 'D'; // Dealer has a higher total or player's total is not greater
   }
   settleBet();
   render();
