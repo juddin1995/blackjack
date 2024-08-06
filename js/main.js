@@ -47,9 +47,9 @@ function handleStand() {
   } else if (dTotal > 21) {
     outcome = 'P'; // Dealer busts, player wins
   } else if (pTotal === 21) {
-    outcome = (dTotal === 21) ? 'T' : 'P'; // Player hits 21, check if dealer also hits 21
+    outcome = (dTotal === 21) ? 'T' : 'PBJ'; // Player hits 21, check if dealer also hits 21
   } else if (dTotal === 21) {
-    outcome = 'D'; // Dealer hits 21, dealer wins
+    outcome = 'DBJ'; // Dealer hits 21, dealer wins
   } else if (pTotal === dTotal) {
     outcome = 'T'; // Tie
   } else if (pTotal > dTotal) {
