@@ -44,6 +44,9 @@ const handActiveControlsEl = document.getElementById("hand-active-controls");
 const handOverControlsEl = document.getElementById("hand-over-controls");
 const dealBtn = document.getElementById("deal-btn");
 const betBtns = document.querySelectorAll("#bet-controls > button");
+const modal = document.getElementById("instructionsModal");
+const openModal = document.getElementById("openModal");
+const closeButton = document.getElementsByClassName("close-button")[0];
 
 /*----- event listeners -----*/
 dealBtn.addEventListener("click", handleDeal);
@@ -228,4 +231,25 @@ function buildMainDeck() {
     });
   });
   return deck; // returns the deck built in an order to the mainDeck constant.
+}
+
+
+
+
+
+// Open modal event
+openModal.onclick = function() {
+    modal.style.display = "block";
+}
+
+// Close modal event
+closeButton.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Close modal if outside content is clicked
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }

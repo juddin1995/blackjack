@@ -13,6 +13,57 @@
     <script defer src="js/main.js"></script>
   </head>
   <body>
+    <!-- Trigger Button -->
+    <button id="openModal">How to Play Blackjack</button>
+
+    <!-- Modal Structure -->
+    <div id="instructionsModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Blackjack Instructions</h2>
+        <p>
+          <strong>Objective:</strong> Beat the dealer's hand without going over
+          21.
+        </p>
+        <ul>
+          <strong>Card Values:</strong>
+          Number cards are worth their face value, face cards are worth 10, and
+          Aces can be worth 1 or 11.
+          <strong>Gameplay:</strong>
+          <ol>
+            <li>
+              Each player is dealt two cards. The dealer also gets two cards,
+              but only one is face-up.
+            </li>
+            <li>
+              Players take turns choosing to "Hit" (draw a card) or "Stand"
+              (keep their current hand).
+            </li>
+            <li>
+              Players can also "Double Down" to double their bet and receive one
+              additional card, or "Split" if they have two cards of the same
+              value.
+            </li>
+          </ol>
+
+          <strong>Winning:</strong>
+          <ul>
+            <li>
+              If your hand value is higher than the dealer’s without exceeding
+              21, you win.
+            </li>
+            <li>
+              If you get 21 with the first two cards (an Ace and a 10-value
+              card), you have a Blackjack and usually win 1.5 times your bet.
+            </li>
+            <li>
+              If the dealer busts (goes over 21), all remaining players win.
+            </li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+
     <div class="main-container">
       <div>
         <h1 id="game-name">Blackjack</h1>
