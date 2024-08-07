@@ -56,9 +56,9 @@ h3 {
   color: #fa725a;
   font-weight: bolder;
   font-size: 16px;
-  display: inline-block; /* Allows the container to adapt to its content */
-  word-wrap: break-word; /* Ensures text wraps within the container */
-  overflow-wrap: break-word; /* Provides better cross-browser compatibility */
+  display: inline-block;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 #dealer-has:hover {
@@ -75,9 +75,9 @@ h3 {
   color: #fa725a;
   font-weight: bolder;
   font-size: 16px;
-  display: inline-block; /* Allows the container to adapt to its content */
-  word-wrap: break-word; /* Ensures text wraps within the container */
-  overflow-wrap: break-word; /* Provides better cross-browser compatibility */
+  display: inline-block;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 #player-has:hover {
@@ -144,16 +144,16 @@ h3 {
 }
 
 #bet-btn-25 {
-  background-color: green; /* Gold color for the chip */
+  background-color: green;
   color: gold;
-  border: 2px solid gold; /* Gold border for definition */
-  border-radius: 50%; /* Round shape */
-  width: 100px; /* Size of the chip */
-  height: 100px; /* Size of the chip */
-  font-size: 24px; /* Text size */
+  border: 2px solid gold;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  font-size: 24px;
   font-weight: bold;
   text-align: center;
-  line-height: 100px; /* Center text vertically */
+  line-height: 100px;
   position: relative;
   cursor: pointer;
   outline: none;
@@ -162,16 +162,16 @@ h3 {
 }
 
 #bet-btn-100 {
-  background-color: black; /* Gold color for the chip */
+  background-color: black;
   color: gold;
-  border: 2px solid gold; /* Gold border for definition */
-  border-radius: 50%; /* Round shape */
-  width: 100px; /* Size of the chip */
-  height: 100px; /* Size of the chip */
-  font-size: 24px; /* Text size */
+  border: 2px solid gold;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  font-size: 24px;
   font-weight: bold;
   text-align: center;
-  line-height: 100px; /* Center text vertically */
+  line-height: 100px;
   position: relative;
   cursor: pointer;
   outline: none;
@@ -180,16 +180,16 @@ h3 {
 }
 
 #bet-btn-500 {
-  background-color: purple; /* Gold color for the chip */
+  background-color: purple;
   color: gold;
-  border: 2px solid gold; /* Black border for definition */
-  border-radius: 50%; /* Round shape */
-  width: 100px; /* Size of the chip */
-  height: 100px; /* Size of the chip */
-  font-size: 24px; /* Text size */
+  border: 2px solid gold;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  font-size: 24px;
   font-weight: bold;
   text-align: center;
-  line-height: 100px; /* Center text vertically */
+  line-height: 100px;
   position: relative;
   cursor: pointer;
   outline: none;
