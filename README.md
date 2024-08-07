@@ -1,5 +1,5 @@
 # Blackjack
-The objective of Blackjack, also known as Twenty-One, is to beat the dealer by getting a hand value closer to 21 than the dealer's hand, without going over 21. 
+The objective of Blackjack, also known as Twenty-One, is to beat the dealer by getting a hand value closer to 21 than the dealer's hand, without going over 21.
 
 # How to Win
 * Blackjack: If your first two cards are an Ace and a 10-value card (10, Jack, Queen, King), this is an automatic win (Blackjack).
@@ -18,7 +18,7 @@ You can play the game here: [blackjack](https://juddin1995.github.io/blackjack/)
 
 # Screenshot
 
-<img src="https://i.imgur.com/nwdSH4K.png" height="750px" width="950px">
+<img src="https://i.imgur.com/xKUbn6f.jpeg">
 
 
 # Technologies Used
@@ -43,5 +43,5 @@ You can play the game here: [blackjack](https://juddin1995.github.io/blackjack/)
 
 # Next Steps
 
-- Future enhancement one...
-- Future enhancement two... 
+- Add a button to double down the bet
+- Add a button to split hands
