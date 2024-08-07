@@ -49,7 +49,6 @@ Maybe this is set up as an array, with four arrays (one for each suit). Don't wa
 
 Shuffle the cards - randomize deck somehow. Can you just randomize an entire array? Look that up - go back to book shuffle exercise for reference. Probably separate init/shuffle methods. That way, only need to create deck once, can re-shuffle for a new game.
 
-Ask for the players name, store it as a variable.
 Deal the initial cards:
 - 2 to player
 - 2 to dealer
