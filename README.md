@@ -20,7 +20,6 @@ You can play the game here: [blackjack](https://juddin1995.github.io/blackjack/)
 
 <img src="https://i.imgur.com/xKUbn6f.jpeg">
 
-
 # Technologies Used
 
 - JavaScript

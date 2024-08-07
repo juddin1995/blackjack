@@ -98,11 +98,7 @@ function handleBet(evt) {
   if (btn.tagName !== "BUTTON") return;
   const betAmt = parseInt(btn.innerText.replace("$", ""));
   bet += betAmt;
-  if (outcome === 'T') {
-    bankroll += betAmt;
-  } else {
-    bankroll -= betAmt;
-  }
+  bankroll -= betAmt;
   render();
 }
 
