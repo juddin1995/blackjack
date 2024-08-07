@@ -6,7 +6,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: auto;
+  overflow-x: hidden;
 }
 
 .main-container {
