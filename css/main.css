@@ -132,12 +132,11 @@ h3 {
   color: black;
   border-radius: 5px;
   padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 500;
   background: gold;
-  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   font-size: 15px;
   width: fit-content;
   margin: 5%;
@@ -309,26 +308,54 @@ h3 {
   display: none;
 }
 
-/* Modal styles */
+#openModal {
+  background-color: #4caf50;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  margin-left: 2%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#openModal:hover {
+  background-color: #45a049;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#openModal:active {
+  background-color: #388e3c;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 .modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4); 
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; 
+  background-color: black;
+  color: white;
+  text-align: left;
+  margin: 10% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; 
+  width: 90%;
   max-width: 600px;
 }
 
@@ -341,7 +368,7 @@ h3 {
 
 .close-button:hover,
 .close-button:focus {
-  color: black;
+  color: red;
   text-decoration: none;
   cursor: pointer;
 }

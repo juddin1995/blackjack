@@ -233,21 +233,14 @@ function buildMainDeck() {
   return deck; // returns the deck built in an order to the mainDeck constant.
 }
 
-
-
-
-
-// Open modal event
 openModal.onclick = function() {
     modal.style.display = "block";
 }
 
-// Close modal event
 closeButton.onclick = function() {
     modal.style.display = "none";
 }
 
-// Close modal if outside content is clicked
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
