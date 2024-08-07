@@ -1,3 +1,7 @@
+# Credits
+Cardstarter CSS Library: GA/Jim
+Background Sourced From: https://getwallpapers.com
+
 # Blackjack
 The objective of Blackjack, also known as Twenty-One, is to beat the dealer by getting a hand value closer to 21 than the dealer's hand, without going over 21.
 
