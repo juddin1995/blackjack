@@ -12,6 +12,10 @@ The objective of Blackjack, also known as Twenty-One, is to beat the dealer by g
 
 * Lower Value than Dealer: If the dealer's hand total is closer to 21 than yours without busting, you lose your bet.
 
+## Live Demo
+
+You can play the game here: [blackjack](https://juddin1995.github.io/blackjack/)
+
 # Screenshot
 
 <img src="https://i.imgur.com/nwdSH4K.png" height="750px" width="950px">
@@ -29,7 +33,7 @@ The objective of Blackjack, also known as Twenty-One, is to beat the dealer by g
 
 # Getting Started
 
-1. Place a bet by clicking on of the bet buttons (Chips with $25, $100, and $500).
+1. Place a bet by clicking on one of the bet buttons (Chips with $25, $100, and $500).
 
 2. Click deal to start the game.
 
