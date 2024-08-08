@@ -22,7 +22,7 @@ You can play the game here: [blackjack](https://juddin1995.github.io/blackjack/)
 
 # Screenshot
 
-<img src="https://i.imgur.com/xKUbn6f.jpeg">
+<img src="https://i.imgur.com/SeKBziN.png">
 
 # Technologies Used
 
@@ -36,13 +36,10 @@ You can play the game here: [blackjack](https://juddin1995.github.io/blackjack/)
 
 # Getting Started
 
-1. Place a bet by clicking on one of the bet buttons (Chips with $25, $100, and $500).
-
-2. Click deal to start the game.
-
-3. Choose whether to hit (add a card to your hand) or stand (skip your turn).
-
-4. Check the "How to Win" section for instructions on winning the game.
+1. Check the instructions for playing Blackjack by clicking the button at the top of the page.
+2. Place a bet by clicking on one of the bet buttons (Chips with $25, $100, and $500).
+3. Click deal to start the game.
+4. Choose whether to hit (add a card to your hand) or stand (skip your turn).
 
 # Next Steps
 

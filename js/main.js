@@ -128,9 +128,11 @@ function handleDeal() {
 
 function settleBet() {
   if (outcome === "PBJ") {
-    bankroll += bet + (bet * 1.5);
+    bankroll += bet + (bet * 2);
   } else if (outcome === "P") {
-    bankroll += bet * 2;
+    bankroll += bet + (bet * 1.5);
+  } else if (outcome === 'T') {
+    bankroll += bet;
   }
   bet = 0;
 }
