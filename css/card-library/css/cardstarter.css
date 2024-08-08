@@ -50,9 +50,9 @@
 }
 .card:hover,
 .card:focus {
-  border-color: #000; /* Optional: Darken the border color */
-  background-color: #f0f0f0; /* Optional: Change the background color */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover/focus */
+  border-color: red;
+  background-color: #f0f0f0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
 }
 
 .card.diamonds.A,
