@@ -1,21 +1,24 @@
 # Credits
+
 Cardstarter CSS Library: GA/Jim
 Background Sourced From: https://getwallpapers.com
 Animations Sourced From: https://uiverse.io
 
 # Blackjack
+
 The objective of Blackjack, also known as Twenty-One, is to beat the dealer by getting a hand value closer to 21 than the dealer's hand, without going over 21.
 
 # How to Win
-* Blackjack: If your first two cards are an Ace and a 10-value card (10, Jack, Queen, King), this is an automatic win (Blackjack).
 
-* Higher Value than Dealer: If your hand total is closer to 21 than the dealer's hand total without going bust, you win. Winnings are typically paid out at 1:1.
+- Blackjack: If your first two cards are an Ace and a 10-value card (10, Jack, Queen, King), this is an automatic win (Blackjack).
 
-* Dealer Busts: If the dealer's hand total goes over 21 (busts), you win regardless of your hand value.
+- Higher Value than Dealer: If your hand total is closer to 21 than the dealer's hand total without going bust, you win. Winnings are typically paid out at 1:1.
 
-* Push: If your hand total equals the dealer's hand total, it's a tie (push) and your bet is returned without any winnings or losses.
+- Dealer Busts: If the dealer's hand total goes over 21 (busts), you win regardless of your hand value.
 
-* Lower Value than Dealer: If the dealer's hand total is closer to 21 than yours without busting, you lose your bet.
+- Push: If your hand total equals the dealer's hand total, it's a tie (push) and your bet is returned without any winnings or losses.
+
+- Lower Value than Dealer: If the dealer's hand total is closer to 21 than yours without busting, you lose your bet.
 
 ## Live Demo
 
