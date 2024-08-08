@@ -1,6 +1,7 @@
 # Credits
 Cardstarter CSS Library: GA/Jim
 Background Sourced From: https://getwallpapers.com
+Animations Sourced From: https://uiverse.io
 
 # Blackjack
 The objective of Blackjack, also known as Twenty-One, is to beat the dealer by getting a hand value closer to 21 than the dealer's hand, without going over 21.
@@ -22,7 +23,7 @@ You can play the game here: [blackjack](https://juddin1995.github.io/blackjack/)
 
 # Screenshot
 
-<img src="https://i.imgur.com/SeKBziN.png">
+<img src="https://i.imgur.com/SeKBziN.png" alt="Blackjack App Screenshots">
 
 # Technologies Used
 
