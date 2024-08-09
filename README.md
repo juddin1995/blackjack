@@ -1,8 +1,8 @@
 # Credits
 
-Cardstarter CSS Library: GA/Jim
-Background Sourced From: https://getwallpapers.com
-Animations Sourced From: https://uiverse.io
+- Cardstarter CSS Library: GA/Jim
+- Background Sourced From: https://getwallpapers.com
+- Animations Sourced From: https://uiverse.io
 
 # Blackjack
 
